@@ -44,6 +44,12 @@ func TestSubtract(t *testing.T) {
 	}
 }
 
+func BenchmarkAdd(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		Add(n, n+1)
+	}
+}
+
 func BenchmarkSubtract(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		Subtract(n+1, n)
