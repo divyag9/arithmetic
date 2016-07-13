@@ -17,6 +17,15 @@ var addCases = []struct {
 	{6, 5, 11},
 }
 
+var subtractCases = []struct {
+	x int
+	y int
+	r int
+}{
+	{2, 1, 1},
+	{21, 1, 20},
+}
+
 func TestAdd(t *testing.T) {
 	for _, a := range addCases {
 		res := Add(a.x, a.y)
@@ -26,8 +35,17 @@ func TestAdd(t *testing.T) {
 	}
 }
 
-func BenchmarkAdd(b *testing.B) {
+func TestSubtract(t *testing.T) {
+	for _, a := range subtractCases {
+		res := Subtract(a.x, a.y)
+		if res != a.r {
+			t.Errorf("Subtract(%q, %q) = %q, want %q", a.x, a.y, res, a.r)
+		}
+	}
+}
+
+func BenchmarkSubtract(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		Add(8000, 9000)
+		Subtract(n+1, n)
 	}
 }

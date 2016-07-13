@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"operation"
+
+	"github.com/divyag9/arithmetic/packages/operation"
 )
 
 func main() {
